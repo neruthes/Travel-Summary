@@ -47,7 +47,7 @@ The last line for flights and trains is the indicator of being overnight.
 
 ### Generate
 
-If your summary file is name `summary.txt`, you may run
+If your summary file is named `summary.txt`, you may run
 
 ```
 $ trsu summary.txt
