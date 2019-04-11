@@ -5,7 +5,7 @@
 ### Install
 
 ```
-$ npm install travel-summary
+$ npm install trsu
 ```
 
 ### Compose
