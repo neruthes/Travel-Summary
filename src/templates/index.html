@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Travel Summary</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        html, body {
+            font-family: 'Helvetica Neue', -apple-system, sans-serif;
+            font-family: monospace;
+            font-size: 10pt;
+            line-height: 1.3em;
+        }
+        .section {
+            padding: 10pt 0;
+        }
+        .section.contact {
+            text-align: right;
+        }
+        .leading {
+            display: inline-block;
+            width: 100pt;
+        }
+        /* ------------------------------------------------------ */
+        .large-text {
+            font-size: 1.4em;
+        }
+        strong, .bold {
+            font-weight: 600;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        [data-show="no"] {
+            display: none;
+        }
+        </style>
+    </head>
+    <body>
+        {{CONTENT}}
+        <script type="text/javascript">
+        window.setTimeout(function () {
+            window.print();
+        }, 50);
+        </script>
+    </body>
+</html>

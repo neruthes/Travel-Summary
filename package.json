@@ -1,0 +1,25 @@
+{
+  "name": "Travel-Summary",
+  "version": "1.0.0",
+  "description": "null",
+  "main": "index.js",
+  "bin": {
+    "trsu": "index.js"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neruthes/travel-summary.git"
+  },
+  "author": "Neruthes (a.k.a. J.N.)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/neruthes/travel-summary/issues"
+  },
+  "homepage": "https://github.com/neruthes/travel-summary#readme"
+}

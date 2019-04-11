@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Travel Summary</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        html, body {
+            font-family: 'Helvetica Neue', -apple-system, sans-serif;
+            font-family: monospace;
+            font-size: 10pt;
+        }
+        .section {
+            padding: 10pt 0;
+        }
+        .section.contact {
+            text-align: right;
+        }
+        /* ------------------------------------------------------ */
+        .large-text {
+            font-size: 1.4em;
+        }
+        strong, .bold {
+            font-weight: 600;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        [data-show="no"] {
+            display: none;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="section contact">
+            <div class="large-text">
+                <strong>LIU YISI</strong>
+            </div>
+            <div class="">
+                EB1234567
+            </div>
+            <div class="">
+                TEL: +1 (500) 555-5555
+            </div>
+        </div>
+<div class="section flight">
+            <div class="bold large-text">
+                Flight: <span class="underline">CZ1234</span> / 2019-01-01
+            </div>
+            <div class="">
+                SHA T2 (23:00) → CAN T3 (00:10<span data-show="yes"> <sup>+1d</sup></span>)
+            </div>
+        </div>
+<div class="section hotel">
+            <div class="bold large-text">
+                Hotel: <span class="underline">IntelContinental Guangzhou</span>
+            </div>
+            <div class="">
+                Telephone: +86 (20) 8922-8888
+            </div>
+            <div class="">
+                Reservation: <span class="underline">12345678</span>
+            </div>
+            <div class="">
+                Address: No. 828, Yuejiang Middle Road, Haizhu District, Guangzhou, 510308
+            </div>
+        </div>
+<div class="section train">
+            <div class="bold large-text">
+                Train: <span class="underline">G99</span> / 2019-01-03
+            </div>
+            <div class="">
+                Hong Kong (09:20) → Shanghai (17:35<span data-show="no"> <sup>+1d</sup></span>)
+            </div>
+        </div>
+    </body>
+</html>
