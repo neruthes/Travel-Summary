@@ -57,6 +57,6 @@ $ trsu summary.txt
 
 ## Copyright
 
-© 2019 [Neruthes (D5E2F043)](https://neruthes.xyz)
+© 2019 [Neruthes (5200DF38)](https://neruthes.xyz)
 
 Licensed under AGPL 3.0.
