@@ -8,25 +8,27 @@
         html, body {
             font-family: 'Helvetica Neue', -apple-system, sans-serif;
             font-family: monospace;
-            font-size: 10pt;
+            font-size: 20pt;
             line-height: 1.3em;
         }
         .section {
             padding: 10pt 0;
+            page-break-inside: avoid;
+            page-break-after: auto;
         }
         .section.contact {
-            text-align: right;
+            padding: 0 0 40pt;
         }
         .leading {
             display: inline-block;
             width: 50pt;
         }
-        .section > div:not(.large-text) {
+        .section:not(.contact) > div:not(.large-text) {
             padding: 0 0 0 50pt;
         }
         /* ------------------------------------------------------ */
         .large-text {
-            font-size: 1.4em;
+            font-size: 1.2em;
         }
         strong, .bold {
             font-weight: 600;
