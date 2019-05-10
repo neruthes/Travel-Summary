@@ -18,19 +18,18 @@ const gen = {
             <div class="large-text">
                 <strong>${argv[0]}</strong>
             </div>
-            <div class="">
-                ${argv[1]}
-            </div>
-            <div class="">
-                TEL: ${argv[2]}
-            </div>
+            ${
+                argv.slice(1).map(line => {
+                    return `<div>${line}</div>`
+                }).join('')
+            }
         </div>`;
     },
 
     flight: (argv) => {
         return `<div class="section flight">
             <div class="bold large-text">
-                <span class="leading">[Flight] </span><span class="underline">${argv[0]}</span> / ${argv[1]}
+                <span class="leading">✈️ </span><span class="underline">${argv[0]}</span> / ${argv[1]}
             </div>
             <div class="">
                 ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span data-show="${argv[6]}"> <sup>+1d</sup></span>)
@@ -41,7 +40,7 @@ const gen = {
     train: (argv) => {
         return `<div class="section train">
             <div class="bold large-text">
-                <span class="leading">[Train] </span><span class="underline">${argv[0]}</span> / ${argv[1]}
+                <span class="leading">🚄 </span><span class="underline">${argv[0]}</span> / ${argv[1]}
             </div>
             <div class="">
                 ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span data-show="${argv[6]}"> <sup>+1d</sup></span>)
@@ -52,17 +51,13 @@ const gen = {
     hotel: (argv) => {
         return `<div class="section hotel">
             <div class="bold large-text">
-                <span class="leading">[Hotel] </span><span class="underline">${argv[0]}</span>
+                <span class="leading">🏨 </span><span class="">${argv[0]}</span>
             </div>
-            <div class="">
-                Reservation: <span class="underline">${argv[2]}</span>
-            </div>
-            <div class="">
-                TEL: ${argv[1]}
-            </div>
-            <div class="">
-                ${argv[3]}
-            </div>
+            ${
+                argv.slice(1).map(line => {
+                    return `<div>${line}</div>`
+                }).join('')
+            }
         </div>`;
     }
 };
