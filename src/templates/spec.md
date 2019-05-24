@@ -1,10 +1,5 @@
 # Specifications
 
-## Contact
-
-- Name
-- Passport
--
 ## Flight
 
 - Flight number
@@ -25,9 +20,6 @@
 - Arrival Time
 - Over midnight
 
-## Hotel
+## Others
 
-- Hotel Name
-- Hotel Telephone
-- Confirmation number
-- Hotel Address
+No format requirement.

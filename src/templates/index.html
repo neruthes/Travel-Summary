@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
         html, body {
-            font-family: 'Helvetica Neue', -apple-system, sans-serif;
-            font-family: monospace;
+            font-family: 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN';
             font-size: 20pt;
             line-height: 1.3em;
         }
@@ -31,24 +30,19 @@
             font-size: 1.2em;
         }
         strong, .bold {
-            font-weight: 600;
+            font-weight: 900;
         }
         .underline {
             text-decoration: underline;
-        }
-        [data-show] {
-            display: none;
-            visibility: hidden;
-        }
-        [data-show="yes"] {
-            display: inline;
-            visibility: visible !important;
         }
         </style>
     </head>
     <body>
         {{CONTENT}}
         <script type="text/javascript">
+        if (document.querySelector('.contact .large-text')) {
+            document.title = document.querySelector('.contact .large-text').innerText.replace(/\//g, '.').replace(/\s/g, '_');
+        };
         window.setTimeout(function () {
             window.print();
         }, 50);

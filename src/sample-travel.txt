@@ -10,7 +10,7 @@ SHA T2
 23:00
 CAN T3
 00:10
-yes
++1
 
 hotel>>
 IntelContinental Guangzhou
@@ -25,4 +25,3 @@ Hong Kong
 09:20
 Shanghai
 17:35
-no

@@ -15,12 +15,9 @@ const fs = require('fs');
 const gen = {
     contact: (argv) => {
         return `<div class="section contact">
-            <div class="large-text">
-                <strong>${argv[0]}</strong>
-            </div>
             ${
-                argv.slice(1).map(line => {
-                    return `<div>${line}</div>`
+                argv.map(line => {
+                    return `<div>${line.replace(/^#\s(.+)$/, '<strong class="large-text">$1</strong>')}</div>`
                 }).join('')
             }
         </div>`;
@@ -32,8 +29,9 @@ const gen = {
                 <span class="leading">✈️ </span><span class="underline">${argv[0]}</span> / ${argv[1]}
             </div>
             <div class="">
-                ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span data-show="${argv[6]}"> <sup>+1d</sup></span>)
+                ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span><sup>${argv[6]||''}</sup></span>)
             </div>
+            <div>Ticket Booked? ⬜︎</div>
         </div>`;
     },
 
@@ -43,8 +41,9 @@ const gen = {
                 <span class="leading">🚄 </span><span class="underline">${argv[0]}</span> / ${argv[1]}
             </div>
             <div class="">
-                ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span data-show="${argv[6]}"> <sup>+1d</sup></span>)
+                ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span><sup>${argv[6]||''}</sup></span>)
             </div>
+            <div>Ticket Booked? ⬜︎</div>
         </div>`;
     },
 
