@@ -8,7 +8,7 @@
 - Departure Time
 - Arrival Location
 - Arrival Time
-- Over midnight
+- Date change
 
 ## Train
 
@@ -18,7 +18,7 @@
 - Departure Time
 - Arrival Location
 - Arrival Time
-- Over midnight
+- Date change
 
 ## Others
 

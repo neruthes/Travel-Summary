@@ -5,7 +5,7 @@
 ### Install
 
 ```
-$ npm install trsu
+$ npm install trsu -g
 ```
 
 ### Compose
@@ -25,7 +25,7 @@ SHA T2
 23:00
 CAN T3
 00:10
-yes
++1
 
 hotel>>
 IntelContinental Guangzhou
@@ -40,10 +40,9 @@ Hong Kong
 09:20
 Shanghai
 17:35
-no
 ```
 
-The last line for flights and trains is the indicator of being overnight.
+The last line for flights and trains is the indicator of date change upon arrival (e.g. being overnight). May be omitted if not overnight.
 
 ### Generate
 
