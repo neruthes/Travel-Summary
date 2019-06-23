@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
         html, body {
-            font-family: 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN';
+            font-family: 'Realtime Rounded', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN';
             font-size: 20pt;
-            line-height: 1.3em;
+            line-height: 1.0em;
         }
         .section {
             padding: 10pt 0;
@@ -25,6 +25,12 @@
         .section:not(.contact) > div:not(.large-text) {
             padding: 0 0 0 50pt;
         }
+        .section.qr div.qrcode-matrix {
+            padding-left: 25pt;
+        }
+        .section.qr div.qrcode-matrix:nth-child(2) {
+            padding-left: 0;
+        }
         /* ------------------------------------------------------ */
         .large-text {
             font-size: 1.2em;
@@ -35,6 +41,10 @@
         .underline {
             text-decoration: underline;
         }
+        .invisible {
+            opacity: 0;
+            visibility: hidden;
+        }
         </style>
     </head>
     <body>
@@ -44,7 +54,7 @@
             document.title = document.querySelector('.contact .large-text').innerText.replace(/\//g, '.').replace(/\s/g, '_');
         };
         window.setTimeout(function () {
-            window.print();
+            // window.print();
         }, 50);
         </script>
     </body>
