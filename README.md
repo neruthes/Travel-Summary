@@ -10,7 +10,7 @@ $ npm install trsu -g
 
 ### Compose
 
-You may write un txt file which looks like:
+You may write un plaintext file which look like:
 
 ```
 contact>>
@@ -58,4 +58,4 @@ $ trsu summary.txt
 
 © 2019 [Neruthes (5200DF38)](https://neruthes.xyz)
 
-Licensed under AGPL 3.0.
+Licensed under GNU AGPL v3.
