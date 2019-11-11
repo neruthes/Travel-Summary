@@ -14,6 +14,13 @@ const qrcode = require('qr-image');
 
 // --------------------------------------------------------
 
+const rightPad = (arr, len, filler) => {
+    if (arr.length >= len) {
+        return arr;
+    } else {
+        return arr + ((new Array(len-arr.length)).fill(filler)).join('');
+    }
+};
 
 const gen = {
     note: (argv) => {
@@ -40,22 +47,31 @@ const gen = {
     flight: (argv) => {
         return `<div class="section flight">
             <div class="bold large-text">
-                <span class="leading">✈️ </span><span class="underline">${argv[0]}</span> / ${argv[1]}
+                <span class="leading">✈️ </span><span class="underline">${argv[0]}</span>${(new Array(14-argv[0].length)).fill('&nbsp;').join('')}${argv[1]} <sup class="invisible">!</sup>
             </div>
-            <div class="">
-                ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span><sup>${argv[6]||''}</sup></span>)
+            <div class="bold large-text">
+                ${argv[2]+(new Array(18-argv[2].length)).fill('&nbsp;').join('')} <strong>${argv[3]}</strong> <sup class="invisible">!</sup>
             </div>
-            <div>Ticket Booked? [ ] __________________<sup class="invisible">!</sup></div>
+            <div class="large-text">
+                ${argv[4]+(new Array(18-argv[4].length)).fill('&nbsp;').join('')} <span>${argv[5]}<sup>${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</sup></span> <sup class="invisible">!</sup>
+            </div>
+            <div class="d-none">
+                ${argv[4]} (${argv[5]}<span><sup>${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</sup></span>)
+            </div>
+            <div class="underline">${rightPad((argv[7]||''), 30, '&nbsp;')}<sup class="invisible">!</sup></div>
         </div>`;
     },
 
     train: (argv) => {
         return `<div class="section train">
             <div class="bold large-text">
-                <span class="leading">🚄 </span><span class="underline">${argv[0]}</span> / ${argv[1]}
+                <span class="leading">🚄 </span><span class="underline">${argv[0]}</span>${(new Array(18-argv[0].length)).fill('&nbsp;').join('')}${argv[1]}
+            </div>
+            <div class="bold large-text">
+                ${argv[2]+(new Array(18-argv[2].length)).fill('&nbsp;').join('')} <strong>${argv[3]}</strong>
             </div>
             <div class="">
-                ${argv[2]} (${argv[3]}) → ${argv[4]} (${argv[5]}<span><sup>${argv[6]||''}</sup></span>)
+                ${argv[4]} (${argv[5]}<span><sup>${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</sup></span>)
             </div>
             <div>Ticket Booked? [ ]</div>
         </div>`;

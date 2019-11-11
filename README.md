@@ -42,7 +42,9 @@ Shanghai
 17:35
 ```
 
-The last line for flights and trains is the indicator of date change upon arrival (e.g. being overnight). May be omitted if not overnight.
+Line 7 for flights and trains is the indicator of date change upon arrival (e.g. being overnight). May be omitted if not overnight.
+
+For flights specifically, line 8 is optional if you would like to note ticket number. But you have to specify `+0` in line 7 in order to make use of this feature.
 
 ### Generate
 
@@ -52,7 +54,7 @@ If your summary file is named `summary.txt`, you may run
 $ trsu summary.txt
 ```
 
-... to generate the HTML version of the plan. The print preview panel should appear automatically.
+... to generate the HTML version of the plan.
 
 ## Copyright
 

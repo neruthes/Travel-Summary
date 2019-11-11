@@ -7,8 +7,12 @@
         <style>
         html, body {
             font-family: 'Realtime Rounded', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN';
+            /* font-family: 'Helvetica Neue', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN'; */
+            /* font-family: 'Menlo', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN'; */
+            /* font-family: 'Fira Mono', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN'; */
             font-size: 20pt;
             line-height: 1.0em;
+            line-height: 1.3em;
         }
         .section {
             padding: 10pt 0;
@@ -23,6 +27,9 @@
             width: 50pt;
         }
         .section:not(.contact) > div:not(.large-text) {
+            padding: 0 0 0 50pt;
+        }
+        .section > div:not(.large-text:first-child) {
             padding: 0 0 0 50pt;
         }
         .section.qr div.qrcode-matrix {
@@ -44,6 +51,9 @@
         .invisible {
             opacity: 0;
             visibility: hidden;
+        }
+        .d-none {
+            display: none;
         }
         </style>
     </head>
