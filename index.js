@@ -25,12 +25,19 @@ const rightPad = (arr, len, filler) => {
 const gen = {
     note: (argv) => {
         return `<div class="section2" data-type="note">
-            <div class="bold big"><span class="leading">📎 </span>${argv.slice(0, 1)}</div>
-            ${
-                argv.slice(1).map(line => {
-                    return `<div>${line.replace(/^#\&nbsp;(.+)$/, '<strong class="big">$1</strong>')}<sup class="invisible">!</sup></div>`
-                }).join('')
-            }
+            <div class="section2-header">📎</div>
+            <div class="section2-content">
+                <div class="row">
+                    ${argv.slice(0,1)}
+                </div>
+                <div class="row">
+                ${
+                    argv.slice(1).map(line => {
+                        return `<p>${line.replace(/^#\&nbsp;(.+)$/, '<span class="big">$1</span>')}</p>`
+                    }).join('')
+                }
+                </div>
+            </div>
         </div>`;
     },
 
@@ -38,7 +45,7 @@ const gen = {
         return `<div class="section2 ff-sansserif" data-type="contact">
             ${
                 argv.map(line => {
-                    return `<div>${line.replace(/^#\&nbsp;(.+)$/, '<strong class="big">$1</strong>')}<sup class="invisible">!</sup></div>`
+                    return `<p>${line.replace(/^#\&nbsp;(.+)$/, '<span class="big">$1</span>')}</p>`
                 }).join('')
             }
         </div>`;
@@ -48,30 +55,30 @@ const gen = {
         return `<div class="section2" data-cell="flight">
             <div class="section2-header">✈️</div>
             <div class="section2-content">
-                <div class="row">
+                <div class="row padless ff-monospace">
                     <div class="col-1 big">
-                        ${argv[0]}
-                    </div><div class="col-2 big">
-                        ${argv[1]}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 big">
-                        ${argv[2]}
-                    </div><div class="col-2 big">
                         ${argv[3]}<span class="sup invisible">!</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1">
-                        ${argv[4]}
-                    </div><div class="col-2">
+                    </div><div class="col-2 big">
                         ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-1">
+                        ${argv[2]}
+                    </div><div class="col-2">
+                        ${argv[4]}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 bold">
+                        ${argv[0]}
+                    </div><div class="col-2 bold">
+                        ${argv[1]}
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col ff-sansserif">
-                        ${argv[7]}
+                        <p>${argv[7]}</p>
                     </div>
                 </div>
             </div>
@@ -82,30 +89,30 @@ const gen = {
         return `<div class="section2" data-cell="train">
             <div class="section2-header">🚄</div>
             <div class="section2-content">
-                <div class="row">
+                <div class="row padless ff-monospace">
                     <div class="col-1 big">
-                        ${argv[0]}
-                    </div><div class="col-2 big">
-                        ${argv[1]}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 big">
-                        ${argv[2]}
-                    </div><div class="col-2 big">
                         ${argv[3]}<span class="sup invisible">!</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1">
-                        ${argv[4]}
-                    </div><div class="col-2">
+                    </div><div class="col-2 big">
                         ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-1">
+                        ${argv[2]}
+                    </div><div class="col-2">
+                        ${argv[4]}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 bold">
+                        ${argv[0]}
+                    </div><div class="col-2 bold">
+                        ${argv[1]}
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col ff-sansserif">
-                        ${argv[7]}
+                        <p>${argv[7]}</p>
                     </div>
                 </div>
             </div>
@@ -117,7 +124,7 @@ const gen = {
             <div class="section2-header">🏨</div>
             <div class="section2-content">
                 <div class="row">
-                    <div class="col big">
+                    <div class="col big ff-sansserif">
                         ${argv[0]}
                     </div>
                 </div>
@@ -125,7 +132,7 @@ const gen = {
                     <div class="col ff-sansserif">
                         ${
                             argv.slice(1).map(line => {
-                                return `<div>${line}<sup class="invisible">!</sup></div>`
+                                return `<p>${line}</p>`
                             }).join('')
                         }
                     </div>

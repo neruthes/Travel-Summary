@@ -9,20 +9,16 @@
             box-sizing: border-box;
         }
         html, body {
-            font-family: 'Roboto Mono', 'JetBrains Mono', 'Source Code Pro', 'Menlo', monospace, 'Noto Sans CJK CN';
-            font-size: 20px;
-            line-height: 1.3em;
+            /* font-family: 'JetBrains Mono', 'Source Code Pro', 'Menlo', monospace, 'Noto Sans CJK CN'; */
+            font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'PingFang SC', 'Noto Sans CJK SC';
+            font-size: 18px;
+            line-height: 20px;
         }
         .ff-sansserif {
             font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'PingFang SC', 'Noto Sans CJK SC';
         }
-        .section {
-            padding: 15px 0;
-            page-break-inside: avoid;
-            page-break-after: auto;
-        }
-        .section[data-type="contact"] {
-            padding: 0 0 40px;
+        .ff-monospace {
+            font-family: 'JetBrains Mono', 'Source Code Pro', 'Menlo', monospace, 'Noto Sans CJK CN';
         }
         .invisible {
             opacity: 0;
@@ -31,19 +27,19 @@
         .d-none {
             display: none;
         }
-        </style>
-        <style media="screen">
         #cont {
             background: #FFF;
-            width: 700px;
-            padding: 50px 50px;
+            width: 600px;
+            padding: 40px 30px;
             margin: 0 auto;
         }
         .section2 {
             border: 1px solid #000;
-            width: 600px;
-            padding: 15px 15px 15px 5px;
+            width: 540px;
+            padding: 20px 15px 1px 5px;
             margin: 0 0 15px;
+            page-break-inside: avoid;
+            page-break-after: auto;
         }
         .section2[data-type="contact"] {
             border-color: rgba(0, 0, 0, 0);
@@ -61,23 +57,35 @@
         }
         .section2-content .row {
             font-size: 20px;
-            padding: 0 0 7px;
+            padding: 0 0 12px;
+        }
+        .section2-content .row.padless {
+            padding: 0;
+        }
+        .section2-content .row .col {
         }
         .section2-content .row .col-1 {
             display: inline-block;
-            width: 290px;
+            width: 260px;
         }
         .section2-content .row .col-2 {
             display: inline-block;
         }
+        p {
+            font-size: 18px;
+            line-height: 20px;
+            margin: 0 0 10px;
+        }
         .big {
             font-size: 28px;
-            font-weight: 600;
+            font-weight: 800;
         }
         .small {
             font-size: 18px;
             line-height: 20px;
-            font-weight: 600;
+        }
+        .bold {
+            font-weight: 800;
         }
         .section2-content .sup {
             font-size: 14px;
