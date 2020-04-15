@@ -5,48 +5,27 @@
         <title>Travel Summary</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+        * {
+            box-sizing: border-box;
+        }
         html, body {
-            font-family: 'Realtime Rounded', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN';
+            font-family: 'JetBrains Mono', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN';
             /* font-family: 'Helvetica Neue', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN'; */
             /* font-family: 'Menlo', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN'; */
             /* font-family: 'Fira Mono', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'Noto Sans CJK CN'; */
-            font-size: 20pt;
-            line-height: 1.0em;
+            font-size: 20px;
             line-height: 1.3em;
         }
+        .ff-sansserif {
+            font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'PingFang SC', 'Noto Sans CJK CN';
+        }
         .section {
-            padding: 10pt 0;
+            padding: 15px 0;
             page-break-inside: avoid;
             page-break-after: auto;
         }
-        .section.contact {
-            padding: 0 0 40pt;
-        }
-        .leading {
-            display: inline-block;
-            width: 50pt;
-        }
-        .section:not(.contact) > div:not(.large-text) {
-            padding: 0 0 0 50pt;
-        }
-        .section > div:not(.large-text:first-child) {
-            padding: 0 0 0 50pt;
-        }
-        .section.qr div.qrcode-matrix {
-            padding-left: 25pt;
-        }
-        .section.qr div.qrcode-matrix:nth-child(2) {
-            padding-left: 0;
-        }
-        /* ------------------------------------------------------ */
-        .large-text {
-            font-size: 1.2em;
-        }
-        strong, .bold {
-            font-weight: 900;
-        }
-        .underline {
-            text-decoration: underline;
+        .section[data-type="contact"] {
+            padding: 0 0 40px;
         }
         .invisible {
             opacity: 0;
@@ -56,9 +35,64 @@
             display: none;
         }
         </style>
+        <style media="screen">
+        #cont {
+            background: #FFF;
+            width: 700px;
+            padding: 50px 50px;
+            margin: 0 auto;
+        }
+        .section2 {
+            border: 1px solid #000;
+            width: 600px;
+            padding: 15px 15px 15px 5px;
+            margin: 0 0 15px;
+        }
+        .section2[data-type="contact"] {
+            border-color: rgba(0, 0, 0, 0);
+            padding: 0;
+        }
+        .section2-header {
+            font-size: 20px;
+            text-align: center;
+            width: 50px;
+            float: left;
+        }
+        .section2-content {
+            font-size: 0px;
+            padding: 0 0 0 70px;
+        }
+        .section2-content .row {
+            font-size: 20px;
+            padding: 0 0 7px;
+        }
+        .section2-content .row .col-1 {
+            display: inline-block;
+            width: 290px;
+        }
+        .section2-content .row .col-2 {
+            display: inline-block;
+        }
+        .big {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .small {
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 600;
+        }
+        .section2-content .sup {
+            font-size: 14px;
+            font-weight: 400;
+            vertical-align: middle;
+        }
+        </style>
     </head>
     <body>
-        {{CONTENT}}
+        <div id="cont">
+            {{CONTENT}}
+        </div>
         <script type="text/javascript">
         if (document.querySelector('.contact .large-text')) {
             document.title = document.querySelector('.contact .large-text').innerText.replace(/\//g, '.').replace(/\s/g, '_');

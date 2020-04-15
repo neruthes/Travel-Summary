@@ -24,74 +24,118 @@ const rightPad = (arr, len, filler) => {
 
 const gen = {
     note: (argv) => {
-        return `<div class="section note">
-            <div class="bold large-text"><span class="leading">📎 </span>${argv.slice(0, 1)}</div>
+        return `<div class="section2" data-type="note">
+            <div class="bold big"><span class="leading">📎 </span>${argv.slice(0, 1)}</div>
             ${
                 argv.slice(1).map(line => {
-                    return `<div>${line.replace(/^#\&nbsp;(.+)$/, '<strong class="large-text">$1</strong>')}<sup class="invisible">!</sup></div>`
+                    return `<div>${line.replace(/^#\&nbsp;(.+)$/, '<strong class="big">$1</strong>')}<sup class="invisible">!</sup></div>`
                 }).join('')
             }
         </div>`;
     },
 
     contact: (argv) => {
-        return `<div class="section contact">
+        return `<div class="section2 ff-sansserif" data-type="contact">
             ${
                 argv.map(line => {
-                    return `<div>${line.replace(/^#\&nbsp;(.+)$/, '<strong class="large-text">$1</strong>')}<sup class="invisible">!</sup></div>`
+                    return `<div>${line.replace(/^#\&nbsp;(.+)$/, '<strong class="big">$1</strong>')}<sup class="invisible">!</sup></div>`
                 }).join('')
             }
         </div>`;
     },
 
     flight: (argv) => {
-        return `<div class="section flight">
-            <div class="bold large-text">
-                <span class="leading">✈️ </span><span class="underline">${argv[0]}</span>${(new Array(14-argv[0].length)).fill('&nbsp;').join('')}${argv[1]} <sup class="invisible">!</sup>
+        return `<div class="section2" data-cell="flight">
+            <div class="section2-header">✈️</div>
+            <div class="section2-content">
+                <div class="row">
+                    <div class="col-1 big">
+                        ${argv[0]}
+                    </div><div class="col-2 big">
+                        ${argv[1]}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 big">
+                        ${argv[2]}
+                    </div><div class="col-2 big">
+                        ${argv[3]}<span class="sup invisible">!</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        ${argv[4]}
+                    </div><div class="col-2">
+                        ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col ff-sansserif">
+                        ${argv[7]}
+                    </div>
+                </div>
             </div>
-            <div class="bold large-text">
-                ${argv[2]+(new Array(18-argv[2].length)).fill('&nbsp;').join('')} <strong>${argv[3]}</strong> <sup class="invisible">!</sup>
-            </div>
-            <div class="large-text">
-                ${argv[4]+(new Array(18-argv[4].length)).fill('&nbsp;').join('')} <span>${argv[5]}<sup>${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</sup></span> <sup class="invisible">!</sup>
-            </div>
-            <div class="d-none">
-                ${argv[4]} (${argv[5]}<span><sup>${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</sup></span>)
-            </div>
-            <div class="underline">${rightPad((argv[7]||''), 30, '&nbsp;')}<sup class="invisible">!</sup></div>
         </div>`;
     },
 
     train: (argv) => {
-        return `<div class="section train">
-            <div class="bold large-text">
-                <span class="leading">🚄 </span><span class="underline">${argv[0]}</span>${(new Array(18-argv[0].length)).fill('&nbsp;').join('')}${argv[1]}
+        return `<div class="section2" data-cell="train">
+            <div class="section2-header">🚄</div>
+            <div class="section2-content">
+                <div class="row">
+                    <div class="col-1 big">
+                        ${argv[0]}
+                    </div><div class="col-2 big">
+                        ${argv[1]}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 big">
+                        ${argv[2]}
+                    </div><div class="col-2 big">
+                        ${argv[3]}<span class="sup invisible">!</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        ${argv[4]}
+                    </div><div class="col-2">
+                        ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col ff-sansserif">
+                        ${argv[7]}
+                    </div>
+                </div>
             </div>
-            <div class="bold large-text">
-                ${argv[2]+(new Array(18-argv[2].length)).fill('&nbsp;').join('')} <strong>${argv[3]}</strong>
-            </div>
-            <div class="">
-                ${argv[4]} (${argv[5]}<span><sup>${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</sup></span>)
-            </div>
-            <div>Ticket Booked? [ ]</div>
         </div>`;
     },
 
     hotel: (argv) => {
-        return `<div class="section hotel">
-            <div class="bold large-text">
-                <span class="leading">🏨 </span><span class="">${argv[0]}</span>
+        return `<div class="section2" data-cell="hotel">
+            <div class="section2-header">🏨</div>
+            <div class="section2-content">
+                <div class="row">
+                    <div class="col big">
+                        ${argv[0]}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col ff-sansserif">
+                        ${
+                            argv.slice(1).map(line => {
+                                return `<div>${line}<sup class="invisible">!</sup></div>`
+                            }).join('')
+                        }
+                    </div>
+                </div>
             </div>
-            ${
-                argv.slice(1).map(line => {
-                    return `<div>${line}<sup class="invisible">!</sup></div>`
-                }).join('')
-            }
         </div>`;
     },
 
     qr: (argv) => {
-        return `<div class="section qr">
+        return `<div class="section2" data-type="qr">
 
                 <span class="leading" style="float: left;">⬆️ </span>
 
