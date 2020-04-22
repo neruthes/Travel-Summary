@@ -13,6 +13,13 @@ const qrcode = require('qr-image');
 
 
 // --------------------------------------------------------
+const svgIcons = {
+    flight: `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#0066EE" width="48px" height="48px"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M2.5,19h19v2h-19V19z M22.07,9.64c-0.21-0.8-1.04-1.28-1.84-1.06L14.92,10l-6.9-6.43L6.09,4.08l4.14,7.17l-4.97,1.33 l-1.97-1.54l-1.45,0.39l2.59,4.49c0,0,7.12-1.9,16.57-4.43C21.81,11.26,22.28,10.44,22.07,9.64z"/></g></g></g></svg>`,
+    train: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0066EE" width="48px" height="48px"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>`,
+    hotel: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0066EE" width="48px" height="48px"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>`,
+    note: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0066EE" width="48px" height="48px"><path d="M0 0h24v24H0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z"/></svg>`
+};
+// --------------------------------------------------------
 
 const rightPad = (arr, len, filler) => {
     if (arr.length >= len) {
@@ -33,7 +40,7 @@ const gen = {
                 <div class="row">
                 ${
                     argv.slice(1).map(line => {
-                        return `<p>${line.replace(/^#\&nbsp;(.+)$/, '<span class="big">$1</span>')}</p>`
+                        return `<p>${line.replace(/^#\&nbsp;(.+)$/, '<span class="big2">$1</span>')}</p>`
                     }).join('')
                 }
                 </div>
@@ -45,7 +52,7 @@ const gen = {
         return `<div class="section2 ff-sansserif" data-type="contact">
             ${
                 argv.map(line => {
-                    return `<p>${line.replace(/^#\&nbsp;(.+)$/, '<span class="big">$1</span>')}</p>`
+                    return `<p>${line.replace(/^#\&nbsp;(.+)$/, '<span class="big2">$1</span>')}</p>`
                 }).join('')
             }
         </div>`;
@@ -53,12 +60,12 @@ const gen = {
 
     flight: (argv) => {
         return `<div class="section2" data-cell="flight">
-            <div class="section2-header">✈️</div>
+            <div class="section2-header">${svgIcons.flight}</div>
             <div class="section2-content">
                 <div class="row padless ff-monospace">
-                    <div class="col-1 big">
-                        ${argv[3]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;<span class="sup invisible">!</span>
-                    </div><div class="col-2 big">
+                    <div class="col-1 big1">
+                        ${argv[3]}&nbsp;&nbsp;&nbsp;&nbsp;<span class="lig-arrow-right">-&gt;</span><span class="sup invisible">!</span>
+                    </div><div class="col-2 big1">
                         ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
                     </div>
                 </div>
@@ -69,16 +76,16 @@ const gen = {
                         ${argv[4]}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ff-monospa ff-monospace">
                     <div class="col-1 bold">
                         ${argv[0]}
-                    </div><div class="col-2 bold">
+                    </div><div class="col-2">
                         ${argv[1]}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col ff-sansserif">
-                        <p>${argv[7]}</p>
+                        ${argv.slice(7).map(x => `<p>${x}</p>`).join('')}
                     </div>
                 </div>
             </div>
@@ -87,12 +94,12 @@ const gen = {
 
     train: (argv) => {
         return `<div class="section2" data-cell="train">
-            <div class="section2-header">🚄</div>
+            <div class="section2-header">${svgIcons.train}</div>
             <div class="section2-content">
                 <div class="row padless ff-monospace">
-                    <div class="col-1 big">
-                        ${argv[3]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;<span class="sup invisible">!</span>
-                    </div><div class="col-2 big">
+                    <div class="col-1 big1">
+                        ${argv[3]}&nbsp;&nbsp;&nbsp;&nbsp;<span class="lig-arrow-right">-&gt;</span><span class="sup invisible">!</span>
+                    </div><div class="col-2 big1">
                         ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
                     </div>
                 </div>
@@ -103,16 +110,16 @@ const gen = {
                         ${argv[4]}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ff-monospace">
                     <div class="col-1 bold">
                         ${argv[0]}
-                    </div><div class="col-2 bold">
+                    </div><div class="col-2">
                         ${argv[1]}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ${ argv[7] === undefined ? 'd-none' : ''}">
                     <div class="col ff-sansserif">
-                        <p>${argv[7]}</p>
+                        ${argv.slice(7).map(x => `<p>${x}</p>`).join('')}
                     </div>
                 </div>
             </div>
@@ -121,10 +128,10 @@ const gen = {
 
     hotel: (argv) => {
         return `<div class="section2" data-cell="hotel">
-            <div class="section2-header">🏨</div>
+            <div class="section2-header">${svgIcons.hotel}</div>
             <div class="section2-content">
                 <div class="row">
-                    <div class="col big ff-sansserif">
+                    <div class="col big2 ff-sansserif">
                         ${argv[0]}
                     </div>
                 </div>

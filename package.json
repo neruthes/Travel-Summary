@@ -1,6 +1,6 @@
 {
   "name": "trsu",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Travel planning utility",
   "main": "index.js",
   "bin": {

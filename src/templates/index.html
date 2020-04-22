@@ -35,7 +35,7 @@
         .section2 {
             border: 2px solid #000;
             width: 670px;
-            padding: 25px 15px 1px 5px;
+            padding: 25px 15px 10px 5px;
             margin: 0 0 15px;
             page-break-inside: avoid;
             page-break-after: auto;
@@ -50,14 +50,20 @@
             opacity: 0.5;
         }
         .section2-header {
-            font-size: 20px;
+            font-size: 44px;
             text-align: center;
-            width: 70px;
             float: left;
+            width: 100px;
+            padding: 8px 0 0;
         }
         .section2-content {
             font-size: 0px;
-            padding: 0 0 0 70px;
+            padding: 0 0 0 110px;
+        }
+        .lig-arrow-right {
+            font-weight: 300;
+            /* color: #0066EE; */
+            opacity: 0.3;
         }
         .section2-content .row {
             font-size: 24px;
@@ -77,11 +83,18 @@
         }
         p {
             font-size: 20px;
-            line-height: 20px;
+            line-height: 24px;
             margin: 0 0 10px;
         }
-        .big {
-            font-size: 32px;
+        p:last-child {
+            margin: 0;
+        }
+        .big1 {
+            font-size: 36px;
+            font-weight: 800;
+        }
+        .big2 {
+            font-size: 26px;
             font-weight: 800;
         }
         .small {
@@ -89,7 +102,7 @@
             line-height: 20px;
         }
         .bold {
-            font-weight: 600;
+            font-weight: 900;
         }
         .section2-content .sup {
             font-size: 14px;
@@ -114,12 +127,31 @@
         }
         </style>
         <style id="js-style1">
+        body, #cont, #controls {
+            background: #335072 !important;
+        }
+        #cont {
+            min-height: 1334px;
+        }
+        .section2 {
+            background: #FFF;
+            border: none;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0 4px 22px;
+            margin: 0 0 30px;
+        }
+        .section2[data-type="contact"],
+        .section2[data-type="footer"] {
+            color: #FFF;
+            background: none;
+            box-shadow: none;
+        }
         </style>
     </head>
     <body>
         <div id="controls" >
-            <div class="" style="text-align: center;">
-                <button id="js-btn1" type="button" name="button" data-state="S0">Use Screen Theme</button>
+            <div class="section2" style="text-align: center;">
+                <button id="js-btn1" type="button" name="button" data-state="S1">Use Print Theme</button>
                 <script type="text/javascript">
                 document.querySelector('#js-btn1').addEventListener('click', function (e) {
                     if (e.target.getAttribute('data-state') === 'S0') { // Change to screen theme
@@ -127,7 +159,7 @@
                         e.target.setAttribute('data-state', 'S1');
                         var styleText = `
                             body, #cont, #controls {
-                                background: #334454 !important;
+                                background: #335072 !important;
                             }
                             #cont {
                                 min-height: 1334px;
