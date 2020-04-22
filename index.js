@@ -57,12 +57,12 @@ const gen = {
             <div class="section2-content">
                 <div class="row padless ff-monospace">
                     <div class="col-1 big">
-                        ${argv[3]}<span class="sup invisible">!</span>
+                        ${argv[3]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;<span class="sup invisible">!</span>
                     </div><div class="col-2 big">
                         ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ff-monospace">
                     <div class="col-1">
                         ${argv[2]}
                     </div><div class="col-2">
@@ -91,12 +91,12 @@ const gen = {
             <div class="section2-content">
                 <div class="row padless ff-monospace">
                     <div class="col-1 big">
-                        ${argv[3]}<span class="sup invisible">!</span>
+                        ${argv[3]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;<span class="sup invisible">!</span>
                     </div><div class="col-2 big">
                         ${argv[5]}<span class="sup">${((argv[6] === undefined || argv[6] === '+0') ? '' : argv[6])}</span>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ff-monospace">
                     <div class="col-1">
                         ${argv[2]}
                     </div><div class="col-2">

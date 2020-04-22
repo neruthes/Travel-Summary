@@ -9,10 +9,9 @@
             box-sizing: border-box;
         }
         html, body {
-            /* font-family: 'JetBrains Mono', 'Source Code Pro', 'Menlo', monospace, 'Noto Sans CJK CN'; */
             font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'PingFang SC', 'Noto Sans CJK SC';
-            font-size: 18px;
-            line-height: 20px;
+            font-size: 20px;
+            line-height: 1;
         }
         .ff-sansserif {
             font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', 'Source Code Pro', 'Helvetica Neue', -apple-system, sans-serif, 'PingFang SC', 'Noto Sans CJK SC';
@@ -27,28 +26,33 @@
         .d-none {
             display: none;
         }
-        #cont {
+        #cont, #controls {
             background: #FFF;
-            width: 600px;
-            padding: 40px 30px;
+            width: 750px;
+            padding: 60px 40px 10px;
             margin: 0 auto;
         }
         .section2 {
-            border: 1px solid #000;
-            width: 540px;
-            padding: 20px 15px 1px 5px;
+            border: 2px solid #000;
+            width: 670px;
+            padding: 25px 15px 1px 5px;
             margin: 0 0 15px;
             page-break-inside: avoid;
             page-break-after: auto;
         }
-        .section2[data-type="contact"] {
+        .section2[data-type="contact"],
+        .section2[data-type="footer"] {
             border-color: rgba(0, 0, 0, 0);
             padding: 0;
+        }
+        .section2[data-type="footer"] {
+            font-size: 16px;
+            opacity: 0.5;
         }
         .section2-header {
             font-size: 20px;
             text-align: center;
-            width: 50px;
+            width: 70px;
             float: left;
         }
         .section2-content {
@@ -56,36 +60,36 @@
             padding: 0 0 0 70px;
         }
         .section2-content .row {
-            font-size: 20px;
+            font-size: 24px;
             padding: 0 0 12px;
         }
         .section2-content .row.padless {
-            padding: 0;
+            padding: 0 0 6px;
         }
         .section2-content .row .col {
         }
         .section2-content .row .col-1 {
             display: inline-block;
-            width: 260px;
+            width: 320px;
         }
         .section2-content .row .col-2 {
             display: inline-block;
         }
         p {
-            font-size: 18px;
+            font-size: 20px;
             line-height: 20px;
             margin: 0 0 10px;
         }
         .big {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
         }
         .small {
-            font-size: 18px;
+            font-size: 20px;
             line-height: 20px;
         }
         .bold {
-            font-weight: 800;
+            font-weight: 600;
         }
         .section2-content .sup {
             font-size: 14px;
@@ -93,10 +97,71 @@
             vertical-align: middle;
         }
         </style>
+        <style>
+        /* #controls */
+        #controls button {
+            font-size: 18px;
+            line-height: 30px;
+            color: #FFF;
+            background: #27F;
+            border: none;
+            border-radius: 4px;
+            display: block;
+            min-width: 240px;
+            padding: 5px 20px;
+            margin: 0 auto 20px;
+            cursor: pointer;
+        }
+        </style>
+        <style id="js-style1">
+        </style>
     </head>
     <body>
+        <div id="controls" >
+            <div class="" style="text-align: center;">
+                <button id="js-btn1" type="button" name="button" data-state="S0">Use Screen Theme</button>
+                <script type="text/javascript">
+                document.querySelector('#js-btn1').addEventListener('click', function (e) {
+                    if (e.target.getAttribute('data-state') === 'S0') { // Change to screen theme
+                        e.target.innerHTML = 'Use Print Theme';
+                        e.target.setAttribute('data-state', 'S1');
+                        var styleText = `
+                            body, #cont, #controls {
+                                background: #334454 !important;
+                            }
+                            #cont {
+                                min-height: 1334px;
+                            }
+                            .section2 {
+                                background: #FFF;
+                                border: none;
+                                border-radius: 8px;
+                                box-shadow: rgba(0, 0, 0, 0.4) 0 4px 22px;
+                                margin: 0 0 30px;
+                            }
+                            .section2[data-type="contact"],
+                            .section2[data-type="footer"] {
+                                color: #FFF;
+                                background: none;
+                                box-shadow: none;
+                            }
+                        `;
+                    } else { // Change to print theme
+                        e.target.innerHTML = 'Use Screen Theme';
+                        e.target.setAttribute('data-state', 'S0');
+                        var styleText = `
+                        `;
+                    };
+                    document.querySelector('#js-style1').innerHTML = styleText;
+                });
+                </script>
+            </div>
+        </div>
         <div id="cont">
             {{CONTENT}}
+            <div class="section2" data-type="footer">
+                Generated with github.com/neruthes/travel-summary
+            </div>
         </div>
         <script type="text/javascript">
         if (document.querySelector('.contact .large-text')) {
