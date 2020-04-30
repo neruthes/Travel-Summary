@@ -3,12 +3,15 @@ NERUTHES
 SAAZYPMNL
 +82 (55) 5555-5555
 
+date>>
+2019-01-01
+
 flight>>
 CZ1234
 2019-01-01
-SHA T2
+SHA/T2
 23:00
-CAN T3
+CAN/T3
 00:10
 +1
 
@@ -17,6 +20,9 @@ IntelContinental Guangzhou
 +86 (20) 8922-8888
 12345678
 No. 828, Yuejiang Middle Road, Haizhu District, Guangzhou, 510308
+
+date>>
+2019-01-03
 
 train>>
 G99

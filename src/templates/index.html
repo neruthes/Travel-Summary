@@ -40,14 +40,18 @@
             page-break-inside: avoid;
             page-break-after: auto;
         }
+        .section2[data-type="note"] {
+            min-height: 120px;
+        }
         .section2[data-type="contact"],
         .section2[data-type="footer"] {
             border-color: rgba(0, 0, 0, 0);
             padding: 0;
+            margin: 0 0 40px;
         }
         .section2[data-type="footer"] {
             font-size: 16px;
-            opacity: 0.5;
+            opacity: 0.75;
         }
         .section2-header {
             font-size: 44px;
@@ -61,9 +65,15 @@
             padding: 0 0 0 110px;
         }
         .lig-arrow-right {
+            font-size: 20px;
             font-weight: 300;
             /* color: #0066EE; */
-            opacity: 0.3;
+            /* opacity: 0.5; */
+            display: block;
+            position: absolute;
+            top: 4px;
+            left: 185px;
+            /* transform: translate(3px, -3px); */
         }
         .section2-content .row {
             font-size: 24px;
@@ -75,8 +85,9 @@
         .section2-content .row .col {
         }
         .section2-content .row .col-1 {
+            position: relative;
             display: inline-block;
-            width: 320px;
+            width: 304px;
         }
         .section2-content .row .col-2 {
             display: inline-block;
@@ -90,11 +101,11 @@
             margin: 0;
         }
         .big1 {
-            font-size: 36px;
-            font-weight: 800;
+            font-size: 30px;
+            font-weight: 600;
         }
         .big2 {
-            font-size: 26px;
+            font-size: 30px;
             font-weight: 800;
         }
         .small {
@@ -127,26 +138,49 @@
         }
         </style>
         <style id="js-style1">
-        body, #cont, #controls {
-            background: #335072 !important;
-        }
-        #cont {
-            min-height: 1334px;
-        }
-        .section2 {
-            background: #FFF;
-            border: none;
-            border-radius: 8px;
-            box-shadow: rgba(0, 0, 0, 0.4) 0 4px 22px;
-            margin: 0 0 30px;
-        }
-        .section2[data-type="contact"],
-        .section2[data-type="footer"] {
-            color: #FFF;
-            background: none;
-            box-shadow: none;
-        }
         </style>
+        <script type="text/javascript">
+        var themeStyleScreen = `
+            body, #cont, #controls {
+                background: #335072 !important;
+            }
+            #cont {
+                min-height: 1334px;
+            }
+            .section2 {
+                background: #FFF;
+                border: none;
+                border-radius: 8px;
+                box-shadow: rgba(0, 0, 0, 0.4) 0 4px 22px;
+                margin: 0 0 30px;
+            }
+            .section2[data-type="contact"] {
+            }
+            .section2[data-type="contact"],
+            .section2[data-type="footer"] {
+                color: #FFF;
+                background: none;
+                box-shadow: none;
+            }
+            [data-type="date"] {
+                color: #FFF;
+                text-align: center;
+                border-top: 2px solid #FFF;
+                padding: 40px 0 0;
+                margin: 0 0 30px;
+            }
+        `;
+        var themeStylePrint = `
+            [data-type="date"] {
+                color: #000;
+                text-align: center;
+                border-top: 2px solid #000;
+                padding: 40px 0 0;
+                margin: 0 0 30px;
+            }
+        `;
+        document.querySelector('#js-style1').innerHTML = themeStyleScreen;
+        </script>
     </head>
     <body>
         <div id="controls" >
@@ -157,32 +191,11 @@
                     if (e.target.getAttribute('data-state') === 'S0') { // Change to screen theme
                         e.target.innerHTML = 'Use Print Theme';
                         e.target.setAttribute('data-state', 'S1');
-                        var styleText = `
-                            body, #cont, #controls {
-                                background: #335072 !important;
-                            }
-                            #cont {
-                                min-height: 1334px;
-                            }
-                            .section2 {
-                                background: #FFF;
-                                border: none;
-                                border-radius: 8px;
-                                box-shadow: rgba(0, 0, 0, 0.4) 0 4px 22px;
-                                margin: 0 0 30px;
-                            }
-                            .section2[data-type="contact"],
-                            .section2[data-type="footer"] {
-                                color: #FFF;
-                                background: none;
-                                box-shadow: none;
-                            }
-                        `;
+                        var styleText = themeStyleScreen;
                     } else { // Change to print theme
                         e.target.innerHTML = 'Use Screen Theme';
                         e.target.setAttribute('data-state', 'S0');
-                        var styleText = `
-                        `;
+                        var styleText = themeStylePrint;
                     };
                     document.querySelector('#js-style1').innerHTML = styleText;
                 });
